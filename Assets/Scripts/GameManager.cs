@@ -62,12 +62,22 @@ public class GameManager : MonoBehaviour
         {
             scoreText.text = "Left Wins";
             winToMainMenuButton.gameObject.SetActive(true);
+            ball.gameObject.SetActive(false);
+            foreach (PlayerController p in players)
+            {
+                p.gameObject.SetActive(false);
+            }
             return;
         }
         else if (rightScore == winScore)
         {
             scoreText.text = "Right Wins";
             winToMainMenuButton.gameObject.SetActive(true);
+            ball.gameObject.SetActive(false);
+            foreach (PlayerController p in players)
+            {
+                p.gameObject.SetActive(false);
+            }
             return;
         }
 
