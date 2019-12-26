@@ -100,7 +100,8 @@ public class GameManager : MonoBehaviour
     public bool IsInGameScene()
     {
         return SceneManager.GetActiveScene().name == Screens.OfflinePlay1P ||
-                SceneManager.GetActiveScene().name == Screens.OfflinePlay2P;
+                SceneManager.GetActiveScene().name == Screens.OfflinePlay2P ||
+                SceneManager.GetActiveScene().name == Screens.OnlinePlay;
     }
 
     public void ExitGame()

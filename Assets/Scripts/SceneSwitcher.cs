@@ -17,6 +17,11 @@ public class SceneSwitcher : MonoBehaviour
         GameManager.Instance.SwitchScene(Screens.OfflinePlay2P);
     }
 
+    public void OnlinePlay()
+    {
+        GameManager.Instance.SwitchScene(Screens.OnlinePlay);
+    }
+
     public void ExitGame()
     {
         GameManager.Instance.ExitGame();

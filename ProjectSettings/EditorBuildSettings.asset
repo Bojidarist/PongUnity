@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OfflinePlay2P.unity
     guid: c0c2bad4b2ff43e4c8d2ceefffb2450f
+  - enabled: 1
+    path: Assets/Scenes/OnlinePlay.unity
+    guid: 788cbd6ff023fc4449ced2cc41110cfa
   m_configObjects: {}
