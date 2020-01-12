@@ -5,6 +5,11 @@ public class BallController : MonoBehaviour
     public AudioSource hitSound;
     public Vector3 movement;
 
+    private void Start()
+    {
+        hitSound.volume = PongOptions.Volume;
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {

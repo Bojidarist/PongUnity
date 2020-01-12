@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public Text scoreText;
     public Button winToMainMenuButton;
+    public Slider pauseMenuVolumeSlider;
     public int winScore = 10;
     public bool isPaused;
 
@@ -54,11 +55,13 @@ public class GameManager : MonoBehaviour
                 {
                     isPaused = true;
                     winToMainMenuButton.gameObject.SetActive(true);
+                    pauseMenuVolumeSlider.gameObject.SetActive(true);
                 }
                 else
                 {
                     isPaused = false;
                     winToMainMenuButton.gameObject.SetActive(false);
+                    pauseMenuVolumeSlider.gameObject.SetActive(false);
                 }
             }
         }
@@ -123,5 +126,11 @@ public class GameManager : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit(0);
+    }
+
+    public void ChangeVolumeFromMenuSlider()
+    {
+        PongOptions.Volume = pauseMenuVolumeSlider.value;
+        ball.hitSound.volume = PongOptions.Volume;
     }
 }
