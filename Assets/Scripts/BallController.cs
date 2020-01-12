@@ -2,6 +2,7 @@
 
 public class BallController : MonoBehaviour
 {
+    public AudioSource hitSound;
     public Vector3 movement;
 
     // Update is called once per frame
@@ -15,10 +16,12 @@ public class BallController : MonoBehaviour
         if (collision.tag == "Wall")
         {
             movement = new Vector3(movement.x, -movement.y, movement.z);
+            hitSound.Play();
         }
         else if (collision.tag == "PointTrigger")
         {
             GameManager.Instance.ScorePoint();
+            hitSound.Play();
         }
     }
 
@@ -64,6 +67,7 @@ public class BallController : MonoBehaviour
             }
 
             movement = movementMod;
+            hitSound.Play();
         }
     }
 }
