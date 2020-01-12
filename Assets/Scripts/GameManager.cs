@@ -131,6 +131,7 @@ public class GameManager : MonoBehaviour
     public void ChangeVolumeFromMenuSlider()
     {
         PongOptions.Volume = pauseMenuVolumeSlider.value;
-        ball.hitSound.volume = PongOptions.Volume;
+        if (ball != null)
+            ball.hitSound.volume = PongOptions.Volume;
     }
 }
