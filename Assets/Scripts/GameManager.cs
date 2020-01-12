@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public int winScore = 10;
 
     private PlayerController[] players;
-    private BallController ball;
+    public BallController ball;
     private int[] ballMultipliers;
     private int leftScore = 0;
     private int rightScore = 0;

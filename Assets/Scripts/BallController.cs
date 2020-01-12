@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Mirror;
+using UnityEngine;
 
-public class BallController : MonoBehaviour
+public class BallController : NetworkBehaviour
 {
     public Vector3 movement;
 
@@ -8,6 +9,14 @@ public class BallController : MonoBehaviour
     void FixedUpdate()
     {
         transform.position += movement;
+    }
+
+    private void Start()
+    {
+        var ballMultipliers = new[] { -1, 1 };
+        gameObject.transform.position = Vector3.zero;
+        movement = new Vector3(0.1f * ballMultipliers[Random.Range(0, 2)], 0f, 0f);
+        GameManager.Instance.ball = this;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
