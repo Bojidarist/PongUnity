@@ -8,7 +8,10 @@ public class BallController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position += movement;
+        if (!GameManager.Instance.isPaused)
+        {
+            transform.position += movement;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

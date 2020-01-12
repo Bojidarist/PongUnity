@@ -20,41 +20,44 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!isBot)
+        if (!GameManager.Instance.isPaused)
         {
-            if (!isInWall)
+            if (!isBot)
             {
-                if (Input.GetKey(upKey))
+                if (!isInWall)
                 {
-                    MoveUp();
+                    if (Input.GetKey(upKey))
+                    {
+                        MoveUp();
+                    }
+                    else if (Input.GetKey(downKey))
+                    {
+                        MoveDown();
+                    }
                 }
-                else if (Input.GetKey(downKey))
+                else
                 {
-                    MoveDown();
+                    if (transform.position.y < 0)
+                    {
+                        MoveUp();
+                    }
+                    else
+                    {
+                        MoveDown();
+                    }
                 }
             }
             else
             {
-                if (transform.position.y < 0)
+                float ballY = ball.gameObject.transform.position.y;
+                if (ballY > transform.position.y + transform.localScale.y - 0.45f)
                 {
                     MoveUp();
                 }
-                else
+                else if (ballY < transform.position.y - transform.localScale.y + 0.45f)
                 {
                     MoveDown();
                 }
-            }
-        }
-        else
-        {
-            float ballY = ball.gameObject.transform.position.y;
-            if (ballY > transform.position.y + transform.localScale.y - 0.45f)
-            {
-                MoveUp();
-            }
-            else if (ballY < transform.position.y - transform.localScale.y + 0.45f)
-            {
-                MoveDown();
             }
         }
     }

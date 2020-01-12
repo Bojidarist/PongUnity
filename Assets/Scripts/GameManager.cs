@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public Button winToMainMenuButton;
     public int winScore = 10;
+    public bool isPaused;
 
     private PlayerController[] players;
     private BallController ball;
@@ -44,6 +45,22 @@ public class GameManager : MonoBehaviour
             isStarted = true;
             ball.gameObject.transform.position = Vector3.zero;
             ball.movement = new Vector3(0.1f * ballMultipliers[Random.Range(0, 2)], 0f, 0f);
+        }
+        else if (IsInGameScene())
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (!isPaused)
+                {
+                    isPaused = true;
+                    winToMainMenuButton.gameObject.SetActive(true);
+                }
+                else
+                {
+                    isPaused = false;
+                    winToMainMenuButton.gameObject.SetActive(false);
+                }
+            }
         }
     }
 
